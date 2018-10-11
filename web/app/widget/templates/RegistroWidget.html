@@ -1,0 +1,43 @@
+<div style="height: 100%; width: 100%">
+    <div data-dojo-type="dijit/form/Form"
+         data-dojo-attach-point="formRegistroWidget">
+            <div data-dojo-type="dojox/layout/TableContainer"
+                 data-dojo-attach-point="tableRegistroWidget"
+                 data-dojo-props="cols:1">
+                <div data-dojo-type="dijit/form/ValidationTextBox"
+                     data-dojo-attach-point="nombreWidget"
+                     required="true"
+                     title="Nombre (s): "
+                     data-dojo-props="
+                     regExp:'[a-zA-Z áéíóúÁÉÍÓÚñÑ\s]+',
+                     invalidMessage:'Solo caracteres simples o con acentos'"
+                     >
+                </div>
+                <div data-dojo-type="dijit/form/ValidationTextBox"
+                     data-dojo-attach-point="apellidosWidget"
+                     required="true"
+                     data-dojo-props="
+                     regExp:'[a-zA-Z áéíóúÁÉÍÓÚñÑ\s]+',
+                     invalidMessage:'Solo caracteres simples o con acentos'"
+                     title="Apellidos: ">
+                </div>
+                <div data-dojo-type="dijit/form/ValidationTextBox"
+                     data-dojo-attach-point="correoWidget"
+                     required="true"
+                     title="Correo: "
+                     data-dojo-props="validator:dojox.validate.isEmailAddress,invalidMessage:'La dirección es invalida'">
+                </div>
+                <div data-dojo-type="dijit/form/ValidationTextBox"
+                     data-dojo-attach-point="userWidget"
+                     required="true"
+                     title="Usuario: ">
+                </div>
+                <div data-dojo-type="dijit/form/Select"
+                     title="Tipo de usuario"
+                     data-dojo-attach-point="tipoUsuarioWidget">
+                        <option value="maestro">Profesor</option>
+                        <option value="alumno">Alumno</option>
+                </div>
+            </div>
+    </div>
+</div>

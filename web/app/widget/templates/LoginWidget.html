@@ -1,0 +1,36 @@
+<div style="width:100%;height:100%">
+    <div data-dojo-type="dijit/form/Form"
+         data-dojo-attach-point="formLoginWidget"
+         class="FormLogin"
+         style="display: block">
+        <div
+            data-dojo-type="dojox/layout/TableContainer"
+            data-dojo-attach-point="tableLoginWidget"
+            data-dojo-props="cols:3,customClass:'labelsAndValues'"
+            class="TableLogin"
+            style="width: 100%"
+            >
+            <div data-dojo-type="dijit/form/ValidationTextBox"
+                 data-dojo-attach-point="userLoginWidget"
+                 data-dojo-props="missingMessage:'Campo requerido'"
+                 required="true"
+                 title="Username">
+            </div>
+            <div data-dojo-type="dijit/form/ValidationTextBox"
+                 data-dojo-attach-point="passwordLoginWidget"
+                 data-dojo-props="missingMessage:'Campo requerido'"
+                 type="password"
+                 required="true"
+                 title="Password"
+                 >
+            </div>
+        </div>
+            <div data-dojo-type="dijit/form/Button"
+                 data-dojo-attach-point="botonSubmitLogin"
+                 type="submit"
+                 class="b"
+                 style="width: 100%;display:grid;height: 33px"
+                 >Entrar
+            </div>
+    </div>
+</div>
