@@ -5,3 +5,7 @@
 .labelsAndValues-valueCell {
   width: 15%;
 }*/
+
+#dialogColor_underlay {
+    background-color:green!important;
+}
