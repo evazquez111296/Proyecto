@@ -53,7 +53,11 @@ function(
                     this._initWidget();
                 console.log("En el postcreate");
             },
-            constructor:function(){
+            constructor:function(args){
+              lang.mixin(this, args);
+              /***
+               * con LagMixin pasamos propiedades desde el widget padre.
+               */ 
               console.log("En el constructor");  
             }
             });

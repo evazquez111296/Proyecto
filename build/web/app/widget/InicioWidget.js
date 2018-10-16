@@ -40,7 +40,6 @@ function(
                     var domNode = this.domNode;
                     this.inherited(arguments);
                     this._createTopPane();
-                    this._createRightPane();
                 console.log("En el postcreate");
             },
             constructor:function(){
@@ -52,14 +51,10 @@ function(
                 this.topPaneWidget.addChild(menuBar);
                 //login.startup();
                 //this.topPaneWidget.resize();
-            },
-            _createRightPane: function (){
-              var  registro=new RegistroWidget({title:'Registro De Usuario'});
-              this.rightPaneWidget.addChild(registro);
             }
             
             });
-            parser.parse();
+            //parser.parse();
          });
 
 

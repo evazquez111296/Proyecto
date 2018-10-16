@@ -28,6 +28,13 @@
                      data-dojo-props="validator:dojox.validate.isEmailAddress,invalidMessage:'La dirección es invalida'">
                 </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
+                     data-dojo-attach-point="contraseñaWidget"
+                     required="true"
+                     title="Contraseña: "
+                     data-dojo-props="regExp:'[a-zA-Z0-9]+',
+                     invalidMessage:'Solo debe contener letras y numeros'">
+                </div>
+                <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="userWidget"
                      required="true"
                      title="Usuario: ">
@@ -38,6 +45,18 @@
                         <option value="maestro">Profesor</option>
                         <option value="alumno">Alumno</option>
                 </div>
+            </div>
+            <div class="dijitDialogPaneActionBar"
+                    style='background-color: #efefef!important; text-align: right!important'>
+                <button data-dojo-type="dijit/form/Button" 
+                        data-dojo-attach-point='btnRegistrarse'
+                        type="submit" 
+                        >Registrarse</button>
+                <button data-dojo-type="dijit/form/Button"
+                        data-dojo-attach-point='btnRegistroCancelar'
+                        type="button"
+                        >Cancelar
+                </button>
             </div>
     </div>
 </div>

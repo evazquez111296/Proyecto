@@ -8,6 +8,7 @@ define([
     "dijit/Menu",
     "dijit/Dialog",
     "/Proyecto/app/widget/LoginWidget.js",
+    "/Proyecto/app/widget/RegistroWidget.js",
     "dijit/_WidgetBase",
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin",
@@ -24,6 +25,7 @@ function(
          Menu,
          Dialog,
          LoginWidget,
+         RegistroWidget,
          _WidgetBase,
          _TemplatedMixin,
          _WidgetsInTemplateMixin,
@@ -37,6 +39,10 @@ function(
                 title:"Login",
                 content:new LoginWidget()
             }),
+            myDialogRegistro: new Dialog({
+               title:"Registro",
+               content: new RegistroWidget()
+            }),
             _initWidget: function(){
                 this.menuItemIniciarSession.on("click",lang.hitch(this,function(){
                     /**
@@ -46,6 +52,12 @@ function(
                     this.myDialogLogin.show();
 
                     console.log("click menu session");
+                }));
+                
+                this.menuItemRegistrarse.on("click",lang.hitch(this,function(){
+                    this.myDialogRegistro.show();
+
+                    console.log("Pop up Registro");
                 }));
                 
                 this.menuItemUnirmeGrupo.on("click",lang.hitch(this,function(){
@@ -61,6 +73,19 @@ function(
                 }));
                 this.myDialogLogin.content.btnLogear.on("click",lang.hitch(this,function(){
                     if(!this.myDialogLogin.content.myFormLoginWidget.isValid()){
+                        window.alert("Los campos son obligatorios");
+                    }
+                }));
+                
+                this.myDialogRegistro.content.btnRegistroCancelar.on("click",lang.hitch(this,function(){
+                    this.myDialogRegistro.hide();
+                    /**
+                     * 
+                     * Cerramos el cuadro de dialogo.
+                     */
+                }));
+                this.myDialogRegistro.content.btnRegistrarse.on("click",lang.hitch(this,function(){
+                    if(!this.myDialogRegistro.content.formRegistroWidget.isValid()){
                         window.alert("Los campos son obligatorios");
                     }
                 }));
