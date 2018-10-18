@@ -5,6 +5,7 @@ define([
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin",
     "dojo/parser",
+    "dojo/text!/Proyecto/app/widget/templates/IntroduccionWidget.html",
     "dojo/domReady!"],
     function(
         declare,
@@ -12,10 +13,11 @@ define([
         _WidgetBase,
         _TemplateMixin,
         _WidgetInTemplateMixin,
-        parser
+        parser,
+        template
         ){
         return declare([_WidgetBase,_TemplateMixin,_WidgetInTemplateMixin],{
-            templateString: "<h1>Hola mundo de JS</h1>",
+            templateString: template,
             
             postCreate:function(){
                 var domNode = this.domNode;
