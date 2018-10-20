@@ -59,6 +59,12 @@ function(
                * con LagMixin pasamos propiedades desde el widget padre.
                */ 
               console.log("En el constructor");  
+            },
+            isValid(){
+                /**Valida que el contenido de los elementos del form
+                 * cumplan con las restricciones con que se definieron.
+                 */
+                return this.formRegistroWidget.isValid();
             }
             });
             parser.parse();

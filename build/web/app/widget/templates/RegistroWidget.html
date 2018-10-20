@@ -3,7 +3,14 @@
          data-dojo-attach-point="formRegistroWidget">
             <div data-dojo-type="dojox/layout/TableContainer"
                  data-dojo-attach-point="tableRegistroWidget"
-                 data-dojo-props="cols:1">
+                 data-dojo-props="cols:2"
+                 >
+                <div data-dojo-type="dijit/form/Button"
+                     data-dojo-props="iconClass:'nombreIcon'"
+                     style='background: white!important'
+                     class='btnRegistroIcon'
+                     disabled>
+                </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="nombreWidget"
                      required="true"
@@ -13,6 +20,11 @@
                      invalidMessage:'Solo caracteres simples o con acentos'"
                      >
                 </div>
+                <div data-dojo-type="dijit/form/Button"
+                     data-dojo-props="iconClass:'nombreIcon'"
+                     class='btnRegistroIcon'
+                     disabled>
+                </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="apellidosWidget"
                      required="true"
@@ -21,11 +33,21 @@
                      invalidMessage:'Solo caracteres simples o con acentos'"
                      title="Apellidos: ">
                 </div>
+                <div data-dojo-type="dijit/form/Button"
+                     data-dojo-props="iconClass:'correoIcon'"
+                     class='btnRegistroIcon'
+                     disabled>
+                </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="correoWidget"
                      required="true"
                      title="Correo: "
                      data-dojo-props="validator:dojox.validate.isEmailAddress,invalidMessage:'La dirección es invalida'">
+                </div>
+                <div data-dojo-type="dijit/form/Button"
+                     data-dojo-props="iconClass:'nombreIcon'"
+                     class='btnRegistroIcon'
+                     disabled>
                 </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="contraseñaWidget"
@@ -34,10 +56,20 @@
                      data-dojo-props="regExp:'[a-zA-Z0-9]+',
                      invalidMessage:'Solo debe contener letras y numeros'">
                 </div>
+                <div data-dojo-type="dijit/form/Button"
+                     data-dojo-props="iconClass:'userNameIcon'"
+                     class='btnRegistroIcon'
+                     disabled>
+                </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="userWidget"
                      required="true"
                      title="Usuario: ">
+                </div>
+                <div data-dojo-type="dijit/form/Button"
+                     data-dojo-props="iconClass:'tipoUsuarioIcon'"
+                     class='btnRegistroIcon'
+                     disabled>
                 </div>
                 <div data-dojo-type="dijit/form/Select"
                      title="Tipo de usuario"
@@ -51,10 +83,13 @@
                 <button data-dojo-type="dijit/form/Button" 
                         data-dojo-attach-point='btnRegistrarse'
                         type="submit" 
-                        >Registrarse</button>
+                        data-dojo-props='iconClass:"aceptarIcon"'
+                        >Aceptar
+                </button>
                 <button data-dojo-type="dijit/form/Button"
                         data-dojo-attach-point='btnRegistroCancelar'
                         type="button"
+                        data-dojo-props='iconClass:"cancelarIcon"'
                         >Cancelar
                 </button>
             </div>

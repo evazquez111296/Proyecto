@@ -1,6 +1,8 @@
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
+    "dojox/mvc/at",
+    "dojo/Stateful",
     "dojo/dom-construct",
     "dojo/dom",
     "dojox/layout/TableContainer",
@@ -20,6 +22,8 @@ define([
         function(
             declare,
             lang,
+            at,
+            Stateful,
             domConstruct,
             dom,
             TableContainer,
@@ -37,6 +41,10 @@ define([
             template){
                 return declare([_WidgetBase, _TemplateMixin, _WidgetInTemplateMixin],{
                     templateString: template,
+                    model:new Stateful({
+                        principal:this.containerWidget,
+                        saludo:'hola mundo de JS'
+                    }),
                     postCreate:function(){
                         var domNode = this.domNode;
                         this.inherited(arguments);
@@ -53,7 +61,8 @@ define([
                       console.log("En el constructor"); 
                     },
                     _createTopPane(){
-                        var menuBar = new MenuBarInicioWidget();
+                        //principal=;
+                        var menuBar = new MenuBarInicioWidget({model:this.model});
                         this.topPaneWidget.addChild(menuBar);
                     },
                     _createCenterPane(){

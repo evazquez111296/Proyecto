@@ -1,11 +1,62 @@
-/*.labelsAndValues-labelCell {
-    width: 15%
+
+.entrarIcon {
+    background: url("../iconos/Entrar.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round;
+}
+.registroUsuarioIcon{
+    background: url("../iconos/RegistroUsuario.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round;
 }
 
-.labelsAndValues-valueCell {
-  width: 15%;
-}*/
+.cancelarIcon{
+    background: url("../iconos/Cancelar.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round;
+}
 
+.aceptarIcon{
+    background: url("../iconos/Aceptar.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round;
+}
+
+.nombreIcon{
+    background: url("../iconos/Nombre.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round; 
+}
+
+.correoIcon{
+    background: url("../iconos/Correo.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round; 
+}
+.tipoUsuarioIcon{
+    background: url("../iconos/TipoUsuario.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round; 
+}
+
+.userNameIcon{
+    background: url("../iconos/userName.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round; 
+}
+
+.btnRegistroIcon .dijitButtonNode{
+    background: white!important;
+    border: white!important;
+}
 #dialogColor_underlay {
     background-color:green!important;
 }

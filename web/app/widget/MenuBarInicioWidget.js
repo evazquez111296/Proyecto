@@ -1,6 +1,7 @@
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
+    "dojo/Stateful",
     "dojo/on",
     "dijit/MenuBar",
     "dijit/PopupMenuBarItem",
@@ -18,6 +19,7 @@ define([
 function(
         declare,
          lang,
+         Stateful,
          on,
          MenuBar,
          PopupMenuBarItems,
@@ -34,15 +36,20 @@ function(
          template)
          {
         return declare([_WidgetBase,_TemplatedMixin,_WidgetsInTemplateMixin],{
-            templateString:template,
+            
+            templateString:template,//Indica el cascaron del Widget, la parte del html.
+            
             myDialogLogin: new Dialog({
                 title:"Login",
                 content:new LoginWidget()
             }),
+            
             myDialogRegistro: new Dialog({
                title:"Registro",
-               content: new RegistroWidget()
+               content: new RegistroWidget(),
+               style:'width:30%'
             }),
+            
             _initWidget: function(){
                 this.menuItemIniciarSession.on("click",lang.hitch(this,function(){
                     /**
@@ -85,7 +92,7 @@ function(
                      */
                 }));
                 this.myDialogRegistro.content.btnRegistrarse.on("click",lang.hitch(this,function(){
-                    if(!this.myDialogRegistro.content.formRegistroWidget.isValid()){
+                    if(!this.get("myDialogRegistro").content.isValid()){
                         window.alert("Los campos son obligatorios");
                     }
                 }));
