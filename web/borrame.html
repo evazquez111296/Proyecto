@@ -6,29 +6,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <script src="Dojo/dojo/dojo.js"
         data-dojo-config="async:true,parseOnLoad:false"></script>
+                <link rel="stylesheet" href="Dojo/dgrid/css/dgrid.css">
+                <link rel="stylesheet" href="Dojo/dgrid/css/skins/soria.css">
+                <script>
+                    function alinear(div){
+                        div.style.setProperty("display","flex");
+                        div.style.setProperty("justify-content","center");
+                        div.style.setProperty("align-items","center");
+                    }
+                </script>
         <style>
-@import "Dojo/dojo/resources/dojo.css";
             html, body {
                 width: 100%;
                 height: 100%;
             }
+            .dgrid-row {
+                        height: 40px;
+                    }
         </style>
-        <link rel="stylesheet" href="Dojo/dgrid/css/dgrid.css">
-        <link rel="stylesheet" href="Dojo/dgrid/css/skins/soria.css">
     </head>
     <body class="soria">
         <div id="GridAlumnos"></div>
         <script >
             require([
                 "dojo/dom",
-                "app/widget/Grid/AlumnosGrid.js",
                 "dojo/request/xhr",
+                "dojo/when",
+                "app/widget/Grid/UsuariosGrid.js",
+                "dstore/Memory",
                 "dojo/domReady!"],
-            function(dom,xhr,AlumnosGrid){
+            function(dom,xhr,when,AlumnosGrid,Memory){
                 var div=dom.byId("GridAlumnos");
                 var grid=new AlumnosGrid().placeAt(div);
-                var deferred=xhr("",{
-                    
+                var deferred=xhr("http://localhost:8084/ElectroESCOM_API/GetAllUsersController",{
+                    handleAs: "json",
+                    method:'get'
+                });
+                var context=this;
+                when(deferred,function (value){
+                    var store = new Memory({
+                        data: value,
+                        //id: ['NumEmpleado', 'Fecha'].join("#")
+                        idProperty: 'nombreUsuario'
+                    });
+                    grid.set('collection',store);
+                    debugger;
+                    console.log("Correecto")}
+                );
+                grid.on('.dgrid-cell.field-Historial:click',function(event){
+                    alert("click")
                 });
                 grid.startup();
             });

@@ -1,5 +1,9 @@
 define([
     "dojo/_base/declare",
+    "dijit/registry",
+    "dojo/dom",
+    "dojo/dom-style",
+    "dojox/widget/Standby",
     "dojo/_base/lang",
     "dojo/Stateful",
     "dojo/on",
@@ -15,9 +19,14 @@ define([
     "dijit/_WidgetsInTemplateMixin",
     "dojo/Stateful",
     "dojo/parser",
-    "dojo/text!/Proyecto/app/widget/templates/MenuBarInicioWidget.html"],
+    "dojo/text!/Proyecto/app/widget/templates/MenuBarInicioWidget.html",
+    "dojo/domReady!"],
 function(
         declare,
+        registry,
+        dom,
+        domStyle,
+        Standby,
          lang,
          Stateful,
          on,
@@ -47,7 +56,7 @@ function(
             myDialogRegistro: new Dialog({
                title:"Registro",
                content: new RegistroWidget(),
-               style:'width:30%'
+               style:'width:30%!important'
             }),
             
             _initWidget: function(){
@@ -81,6 +90,12 @@ function(
                 this.myDialogLogin.content.btnLogear.on("click",lang.hitch(this,function(){
                     if(!this.myDialogLogin.content.myFormLoginWidget.isValid()){
                         window.alert("Los campos son obligatorios");
+                    }else{
+                        /****
+                         * Aquí ira la llamada AJAX que 
+                         * traera el perfil del usuario logeado.
+                         */
+                        var deferred;
                     }
                 }));
                 

@@ -53,6 +53,34 @@
     background-repeat: round; 
 }
 
+.generoIcon{
+    background: url("../iconos/GeneroIcon.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round; 
+}
+
+.passwordIcon{
+    background: url("../iconos/password.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round; 
+}
+
+.calendarioIcon{
+    background: url("../iconos/calendario.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round; 
+}
+
+.fotoIcon{
+    background: url("../iconos/foto.png")!important;
+    width: 20px!important;
+    height: 20px!important;
+    background-repeat: round; 
+}
+
 .btnRegistroIcon .dijitButtonNode{
     background: white!important;
     border: white!important;

@@ -1,6 +1,7 @@
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
+    "dojo/_base/fx",
     "dojox/layout/TableContainer",
     "dijit/form/ValidationTextBox",
     "dijit/form/Button",
@@ -14,6 +15,7 @@ define([
 function(
         declare,
          lang,
+         fx,
          TableContainer,
          ValidationTextBox,
          Button,
@@ -39,6 +41,7 @@ function(
                */                  
               console.log("En el constructor");  
             }
+            
             });
             parser.parse();
          });
