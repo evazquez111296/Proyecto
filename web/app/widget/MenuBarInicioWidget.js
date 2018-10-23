@@ -1,7 +1,11 @@
 define([
     "dojo/_base/declare",
     "dijit/registry",
+    "dojo/request/xhr",
+    "dojo/request/iframe",
+    "dojo/when",
     "dojo/dom",
+    "dojo/dom-form",
     "dojo/dom-style",
     "dojox/widget/Standby",
     "dojo/_base/lang",
@@ -24,7 +28,11 @@ define([
 function(
         declare,
         registry,
+        request,
+        iframe,
+        when,
         dom,
+        domForm,
         domStyle,
         Standby,
          lang,
@@ -56,7 +64,7 @@ function(
             myDialogRegistro: new Dialog({
                title:"Registro",
                content: new RegistroWidget(),
-               style:'width:30%!important'
+               style:'width:33%!important'
             }),
             
             _initWidget: function(){
@@ -109,6 +117,19 @@ function(
                 this.myDialogRegistro.content.btnRegistrarse.on("click",lang.hitch(this,function(){
                     if(!this.get("myDialogRegistro").content.isValid()){
                         window.alert("Los campos son obligatorios");
+                    }else{
+                        //formRegistroWidget
+                        var form=dom.byId("formRegistroUsuario");
+                        var deferred=request.post("http://localhost:8084/ElectroESCOM_API/RegistroUsuarioController",{
+                            data:domForm.toObject("formRegistroUsuario"),
+                            handleAs:'text'
+                        });
+                        var context=this;
+                        when(deferred,function(value){
+                            //alert(value);
+                            context.get("myDialogRegistro").content.changeResponseMessage(value);
+                        });
+                        
                     }
                 }));
             },

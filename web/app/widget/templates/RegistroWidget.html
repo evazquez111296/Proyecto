@@ -1,9 +1,16 @@
 <div style="height: 100%; width: 100%">
+    <div>
+        <p data-dojo-attach-point="mensajeRespuesta">
+            ${responseMessage}
+        </p>
+    </div>
     <div data-dojo-type="dijit/form/Form"
-         data-dojo-attach-point="formRegistroWidget">
+         data-dojo-attach-point="formRegistroWidget"
+         id="formRegistroUsuario">
             <div data-dojo-type="dojox/layout/TableContainer"
                  data-dojo-attach-point="tableRegistroWidget"
                  data-dojo-props="cols:2"
+                 customClass="myClass"	
                  >
                 <div data-dojo-type="dijit/form/Button"
                      data-dojo-props="iconClass:'nombreIcon'"
@@ -13,6 +20,7 @@
                 </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="nombreWidget"
+                     name="nombre"
                      required="true"
                      title="Nombre (s): "
                      data-dojo-props="
@@ -28,6 +36,7 @@
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="apellidoPaternoWidget"
                      required="true"
+                     name="paterno"
                      data-dojo-props="
                      regExp:'[a-zA-Z áéíóúÁÉÍÓÚñÑ\s]+',
                      invalidMessage:'Solo caracteres simples o con acentos'"
@@ -40,6 +49,7 @@
                 </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="apellidoMaternoWidget"
+                     name="materno"
                      required="true"
                      data-dojo-props="
                      regExp:'[a-zA-Z áéíóúÁÉÍÓÚñÑ\s]+',
@@ -53,6 +63,7 @@
                 </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="correoWidget"
+                     name="correo"
                      required="true"
                      title="Correo: "
                      data-dojo-props="validator:dojox.validate.isEmailAddress,invalidMessage:'La dirección es invalida'">
@@ -64,6 +75,7 @@
                 </div>
                 <div data-dojo-type="dijit/form/ValidationTextBox"
                      data-dojo-attach-point="userWidget"
+                     name="usuario"
                      required="true"
                      title="Usuario: ">
                 </div>
@@ -85,9 +97,10 @@
                 </div>
                 <div data-dojo-type="dijit/form/Select"
                      title="Tipo de usuario"
+                     name="tipoUsuario"
                      data-dojo-attach-point="tipoUsuarioWidget">
-                        <option value="maestro">Profesor</option>
-                        <option value="alumno">Alumno</option>
+                        <option value="2">Profesor</option>
+                        <option value="1">Alumno</option>
                 </div>
                 <div data-dojo-type="dijit/form/Button"
                      data-dojo-props="iconClass:'generoIcon'"
@@ -96,6 +109,7 @@
                 </div>
                 <div data-dojo-type="dijit/form/Select"
                      title="Género"
+                     name="Genero"
                      data-dojo-attach-point="sexoUsuarioWidget">
                         <option value="M">Masculino</option>
                         <option value="F">Femenino</option>
@@ -108,24 +122,22 @@
                 <div data-dojo-type="dijit/form/DateTextBox"
                      title="Fecha de nacimiento"
                      data-dojo-attach-point="fechaNacWidget"
-                     value="1996-12-11">
-                </div>
-                <div data-dojo-type="dijit/form/Button"
-                     data-dojo-props="iconClass:'fotoIcon'"
-                     class='btnRegistroIcon'
-                     disabled>
-                </div>
-                <div data-dojo-type="dijit/form/DateTextBox"
-                     title="Foto"
-                     data-dojo-attach-point="fechaNacWidget"
+                     name="FechaNac"
                      value="1996-12-11">
                 </div>
             </div>
+        <!--
+            <p style="padding-left: 15%!important">             
+                <input 
+                    data-dojo-type="dojox.form.FileInput"
+                     name="foto"
+                     type="file"
+                 />
+            </p>-->
             <div class="dijitDialogPaneActionBar"
                     style='background-color: #efefef!important; text-align: right!important'>
                 <button data-dojo-type="dijit/form/Button" 
-                        data-dojo-attach-point='btnRegistrarse'
-                        type="submit" 
+                        data-dojo-attach-point='btnRegistrarse' 
                         data-dojo-props='iconClass:"aceptarIcon"'
                         >Aceptar
                 </button>
