@@ -17,6 +17,7 @@ define([
     "dojo/parser",
     "/Proyecto/app/widget/MenuBarInicioWidget.js",
     "/Proyecto/app/widget/IntroduccionWidget.js",
+    "/Proyecto/app/widget/ConfiguracionPerfilWidget.js",
     "dojo/text!/Proyecto/app/widget/templates/PagPrincipalWidget.html",
     "dojo/domReady!"],
         function(
@@ -38,6 +39,7 @@ define([
             parser,
             MenuBarInicioWidget,
             IntroduccionWidget,
+            ConfiguracionPerfilWidget,
             template){
                 return declare([_WidgetBase, _TemplateMixin, _WidgetInTemplateMixin],{
                     templateString: template,
@@ -66,8 +68,10 @@ define([
                         this.topPaneWidget.addChild(menuBar);
                     },
                     _createCenterPane(){
-                        var introduccion = new IntroduccionWidget();
-                        this.centerPaneWidget.addChild(introduccion);
+                        //var introduccion = new IntroduccionWidget();
+                        //this.centerPaneWidget.addChild(introduccion);
+                        var configPerfil = new ConfiguracionPerfilWidget();
+                        this.centerPaneWidget.addChild(configPerfil);
                         /*
                          * Aquí deberia ir la introduccion.
                          */
